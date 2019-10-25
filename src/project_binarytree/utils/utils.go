@@ -2,7 +2,7 @@ package utils
 
 import (
 	f "fmt"
-	bt "project1/binarytree"
+	bt "project_binarytree/binarytree"
 )
 
 

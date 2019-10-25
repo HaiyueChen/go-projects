@@ -2,8 +2,8 @@ package main
 
 import (
 	f "fmt"
-	bt "project1/binarytree"
-	"project1/utils"
+	bt "project_binarytree/binarytree"
+	"project_binarytree/utils"
 	// "bufio"
 	// "io"
 	// "os"
