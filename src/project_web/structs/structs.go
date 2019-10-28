@@ -2,8 +2,8 @@ package structs
 
 import (
 	io "io/ioutil"
+	"project_web/utils"
 )
-
 
 //Page struct that is a webpage
 type Page struct {
@@ -12,20 +12,21 @@ type Page struct {
 }
 
 // Save a page to the disk
-func (p *Page) Save() error {
-	filename := p.Title + ".txt"
-	return io.WriteFile(filename, p.Body, 0600)
+func (p *Page) Save(filename string, path string) error {
+
+	return io.WriteFile(path, p.Body, 0600)
 }
 
 // LoadPage from disk
-func LoadPage(title string) (*Page, error) {
-	filename := title + ".txt"
-	body, err := io.ReadFile(filename)
+func LoadPage(path string) (*Page, error) {
+
+	body, err := io.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
+	filename := utils.ParseFilenameFromPath(path)
 	page := Page{
-		Title: title,
-		Body: body}
+		Title: filename,
+		Body:  body}
 	return &page, nil
 }
